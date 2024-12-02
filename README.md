@@ -2,6 +2,7 @@
 Welcome to Spaceman, a fun and interactive word guessing game inspired by Hangman but with a space twist. Your objective is to guess the word correctly by guessing individual letters or the entire word, all while avoiding the wrong guesses that add to the "spaceman's" demise. The game is designed for two players and includes a hint feature to help you if you're stuck.
 
 **How to Play**
+
 Start the Game:
 
 - When you open the game, you'll see a series of buttons representing the alphabet (A-Z).

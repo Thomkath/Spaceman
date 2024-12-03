@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url("https://tse3.mm.bing.net/th?id=OIP.U1JfsX-C9DEbS54S0_N2KgHaFj&pid=Api&P=0&h=220") no-repeat center center fixed;
+    background: url("https://tse2.mm.bing.net/th?id=OIP.vhN8VXjbWYzQ0MzG0AtpnAHaEL&pid=Api&P=0&h=220") no-repeat center center fixed;
     background-size: cover;
     font-family: 'Orbitron', sans-serif;
     font-size: 1.2rem;
@@ -12,231 +12,46 @@ body {
     padding: 0;
 }
 
-#message {
-    display: none;  /* This would hide the message */
-}
-
+/* Styling for the main title */
 h1 {
-    color: aliceblue;
+    color: white; /* Set the title color to white */
     text-align: center;
-    font-size: 4rem;/* Basic page styling */
-    * {
-        box-sizing: border-box;
-    }
-    
-    body {
-        background: url("https://tse3.mm.bing.net/th?id=OIP.76e9L3jMT0iRuO_nYY60nwHaDi&pid=Api&P=0&h=220") no-repeat center center fixed;
-        background-size: cover;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 1.2rem;
-        margin: 0;
-        padding: 0;
-    }
-    
-    h1 {
-        color: aliceblue;
-        text-align: center;
-        font-size: 4rem;
-        margin-top: 20px;
-    }
-    
-    h2 {
-        color: aliceblue;
-        text-align: center;
-        font-size: 2rem;
-    }
-    
-    #hint-description {
-        display: none;  /* Initially hidden */
-        color: #16A085;  /* A stylish turquoise for hint text */
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 20px;
-        transition: opacity 0.3s ease-in-out;  /* Fade-in effect */
-        opacity: 0;  /* Initially invisible */
-    }
-    
-    #hint-description.show {
-        display: block;  /* Make visible when the class 'show' is added */
-        opacity: 1;  /* Fade in to 100% opacity */
-    }
-    
-    /* Styling for current turn (player turn) */
-    #current-turn {
-        color: #F39C12;  /* A bright orange for the current turn message */
-        text-align: center;
-        font-size: 1.8rem;
-        font-weight: bold;
-        text-transform: uppercase;  /* Make it look more prominent */
-        margin-top: 20px;
-        letter-spacing: 1px;  /* Add a little space between letters for style */
-    }
-    
-    /* Container for letters */
-    #container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-    }
-    
-    /* Rows for the letter buttons */
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 10px 0;
-    }
-    
-    /* Styling for individual letter buttons */
-    .btn-letter {
-        font-size: 1.5rem;
-        margin: 5px;
-        padding: 15px 20px;
-        background-color: #2a2a2a; /* Darker background for a classy look */
-        color: #d4d4d4; /* Light gray text color */
-        border: 2px solid #d4d4d4; /* Light gray border */
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
-        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-    }
-    
-    .btn-letter:hover {
-        background-color: #88df8e; /* Light green background on hover */
-        color: #0c1723; /* Dark text color on hover */
-        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); /* Deeper shadow on hover for a more sophisticated effect */
-    }
-    
-    /* Input styling */
-    input[type="text"] {
-        font-size: 1.5rem;
-        padding: 10px;
-        margin: 20px;
-        border-radius: 5px;
-        border: 2px solid #88df8e; /* Matching green border */
-        background-color: transparent;
-        color: white;
-        width: 200px;
-        text-align: center;
-    }
-    
-    /* General button styling */
-    button {
-        padding: 10px 20px;
-        font-size: 1.2rem;
-        background-color: transparent;
-        border: 1px solid white;
-        border-radius: 10px;
-        color: white;
-        cursor: pointer;
-        margin-top: 20px;
-    }
-    
-    button:hover {
-        background-color: white;
-        color: #0c1723;
-    }
-    
-    /* Play Again button */
-    #play-again {
-        display: none;
-    }
-    
-    /* Hint Button */
-    #hint-btn {
-        margin-top: 20px;
-        background-color: #e67e22; /* Orange color for the hint button */
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        display: block;
-        text-transform: uppercase;  /* Style button text */
-        letter-spacing: 1px;
-        transition: background-color 0.3s, transform 0.3s;
-    }
-    
-    #hint-btn:hover {
-        background-color: #d35400; /* Darker orange when hovered */
-        transform: scale(1.05); /* Slightly enlarge button on hover */
-    }
-    
-    /* Restart Game button */
-    #restart-game {
-        display: none;
-        margin-top: 20px;
-        font-size: 1.2rem;
-        background-color: #2ecc71; /* Green color for Restart */
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    #restart-game:hover {
-        background-color: #27ae60; /* Darker green when hovered */
-    }
-    
-    /* Message and current turn display */
-    #message {
-        color: aliceblue;
-        text-align: center;
-        font-size: 2rem;
-    }
-    
-    /* Hide unnecessary elements initially */
-    #restart-game, #hint-description, #play-again {
-        display: none;
-    }
-    
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add a shadow for better contrast */
     margin-top: 20px;
-}
-
-h2 {
-    color: aliceblue;
-    text-align: center;
-    font-size: 2rem;
-}
-
-
-#hint-description {
-    color: white;
-    font-size: 18px;
-    margin-top: 20px;
-    text-align: center;
-    font-weight: light;
-    display: none;  /* Hidden initially, only shown after hint is used */
 }
 
 /* Main game container */
 #game-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: flex-start;
+    padding: 20px;
+    height: 100vh; /* Full height of viewport */
 }
 
-/* Container for letter buttons and guess section */
+/* Alphabet and player turn section on the left */
 #alphabet-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px; /* Add space between this container and the player turn */
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 300px; /* Set width for better alignment */
+    padding: 20px;
+    background-color: rgba(44, 62, 80, 0.8); /* Semi-transparent dark background */
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
 }
 
-/* Container for the guess and hint buttons */
-#input-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-/* Spacing between elements in the input section */
-#input-section > * {
-    margin: 0 15px;
+/* Player turn section styling */
+#current-turn {
+    color: #f1c40f; /* Golden yellow for elegance */
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: left;
 }
 
 /* Styling for individual letter buttons */
@@ -244,108 +59,57 @@ h2 {
     font-size: 1.5rem;
     margin: 5px;
     padding: 15px 20px;
-    background-color: #2a2a2a; /* Darker background for a classy look */
-    color: #d4d4d4; /* Light gray text color */
-    border: 2px solid #d4d4d4; /* Light gray border */
+    background-color: #34495e; /* Darker background for a professional look */
+    color: #ecf0f1; /* Light gray text color */
+    border: 2px solid #ecf0f1;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .btn-letter:hover {
-    background-color: #88df8e; /* Light green background on hover */
-    color: #0c1723; /* Dark text color on hover */
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); /* Deeper shadow on hover for a more sophisticated effect */
+    background-color: #1abc9c; /* Teal hover effect */
+    color: #2c3e50; /* Darker text for better contrast */
 }
 
-/* Input styling */
-input[type="text"] {
-    font-size: 1.5rem;
-    padding: 10px;
-    margin: 20px;
-    border-radius: 5px;
-    border: 2px solid #88df8e; /* Matching green border */
-    background-color: transparent;
-    color: white;
-    width: 200px;
-    text-align: center;
+/* Input section (right side) */
+#input-section {
+    margin-left: 40px; /* Space between left and right sections */
 }
 
 /* General button styling */
 button {
     padding: 10px 20px;
     font-size: 1.2rem;
-    background-color: transparent;
+    background-color: #34495e; /* Match the letter buttons */
     border: 1px solid white;
     border-radius: 10px;
     color: white;
     cursor: pointer;
-    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-    background-color: white;
-    color: #0c1723;
+    background-color: #1abc9c;
+    color: #2c3e50;
+    transform: scale(1.05);
 }
 
-/* Hint Button */
-#hint-btn {
-    background-color: #e67e22; /* Orange color for the hint button */
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-#hint-btn:hover {
-    background-color: #d35400; /* Darker orange when hovered */
-}
-
-/* Restart Game button */
-#restart-game {
-    display: none;
+/* Message and hint description */
+#message, #hint-description {
+    color: #ecf0f1;
+    font-size: 1.8rem;
     margin-top: 20px;
-    font-size: 1.2rem;
-    background-color: #2ecc71; /* Green color for Restart */
-    padding: 10px 20px;
+}
+
+/* Restart button */
+#restart-game {
+    background-color: #27ae60; /* Green for restart */
     border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 20px;
 }
 
 #restart-game:hover {
-    background-color: #27ae60; /* Darker green when hovered */
-}
-
-/* Message and current turn display */
-#message {
-    color: aliceblue;
-    text-align: center;
-    font-size: 2rem;
-}
-
-/* Player turn section */
-#current-turn {
-    color: aliceblue;
-    font-size: 1.5rem;
-    margin-top: 30px; /* Space below the alphabet container */
-    text-align: center;
-}
-
-/* Hide unnecessary elements initially */
-#restart-game, #hint-description, #play-again {
-    display: none;
-}
-
-#hint-description {
-    display: none;  /* Initially hidden */
-    color: white;
-    font-size: 18px;
-    margin-top: 20px;
-    text-align: center;
-    font-weight: light;
-}
-
-#hint-description.show {
-    display: block;  /* Make visible when the class 'show' is added */
+    background-color: #2ecc71;
 }

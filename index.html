@@ -14,7 +14,11 @@
     <h1>Welcome To Spaceman</h1>
     <h2 id="message">Word Guessing Game</h2>
 
-    <section id="container">
+    <section id="images-container">
+        <img id="happy-image" src="images/happy-spaceman.png" alt="Happy Spaceman" style="display: none; width: 200px;">
+        <img id="sad-image" src="images/sad-spaceman.png" alt="Sad Spaceman" style="display: none; width: 200px;">
+    </section>
+
         <div class="row">
             <button class="btn-letter" aria-label="Letter A">A</button>
             <button class="btn-letter" aria-label="Letter B">B</button>
@@ -49,22 +53,24 @@
             <button class="btn-letter" aria-label="Letter Y">Y</button>
             <button class="btn-letter" aria-label="Letter Z">Z</button>
         </div>
-        
+
         <input type="text" id="guess" placeholder="Enter your guess" aria-label="Guess input">
         <button id="guess-btn">Guess</button>
         <button id="play-again" style="display: none;">Play Again</button>
-        
-        <!-- Add a hint button -->
+
         <button id="hint-btn">Get Hint</button>
-
-        <!-- Add element for hint description -->
         <p id="hint-description"></p>
-        
         <p id="current-turn">It's Player 1's turn</p>
-
 
         <button id="restart-game" style="display: none;">Restart Game</button>
     </section>
 
+    <script>
+        // Function to display correct or incorrect feedback
+        function displayFeedback(correct) {
+            document.getElementById('happy-image').style.display = correct ? 'block' : 'none';
+            document.getElementById('sad-image').style.display = correct ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>

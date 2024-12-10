@@ -14,55 +14,48 @@
     <h1>Welcome To Spaceman</h1>
     <h2 id="message">Word Guessing Game</h2>
 
-    <section id="images-container">
-        <img id="happy-image" src="images/happy-spaceman.png" alt="Happy Spaceman" style="display: none; width: 200px;">
-        <img id="sad-image" src="images/sad-spaceman.png" alt="Sad Spaceman" style="display: none; width: 200px;">
-    </section>
+    <div class="row">
+        <button class="btn-letter" aria-label="Letter A">A</button>
+        <button class="btn-letter" aria-label="Letter B">B</button>
+        <button class="btn-letter" aria-label="Letter C">C</button>
+        <button class="btn-letter" aria-label="Letter D">D</button>
+        <button class="btn-letter" aria-label="Letter E">E</button>
+        <button class="btn-letter" aria-label="Letter F">F</button>
+    </div>
+    <div class="row">
+        <button class="btn-letter" aria-label="Letter G">G</button>
+        <button class="btn-letter" aria-label="Letter H">H</button>
+        <button class="btn-letter" aria-label="Letter I">I</button>
+        <button class="btn-letter" aria-label="Letter J">J</button>
+        <button class="btn-letter" aria-label="Letter K">K</button>
+        <button class="btn-letter" aria-label="Letter L">L</button>
+    </div>
+    <div class="row">
+        <button class="btn-letter" aria-label="Letter M">M</button>
+        <button class="btn-letter" aria-label="Letter N">N</button>
+        <button class="btn-letter" aria-label="Letter O">O</button>
+        <button class="btn-letter" aria-label="Letter P">P</button>
+        <button class="btn-letter" aria-label="Letter Q">Q</button>
+        <button class="btn-letter" aria-label="Letter R">R</button>
+        <button class="btn-letter" aria-label="Letter S">S</button>
+    </div>
+    <div class="row">
+        <button class="btn-letter" aria-label="Letter T">T</button>
+        <button class="btn-letter" aria-label="Letter U">U</button>
+        <button class="btn-letter" aria-label="Letter V">V</button>
+        <button class="btn-letter" aria-label="Letter W">W</button>
+        <button class="btn-letter" aria-label="Letter X">X</button>
+        <button class="btn-letter" aria-label="Letter Y">Y</button>
+        <button class="btn-letter" aria-label="Letter Z">Z</button>
+    </div>
 
-        <div class="row">
-            <button class="btn-letter" aria-label="Letter A">A</button>
-            <button class="btn-letter" aria-label="Letter B">B</button>
-            <button class="btn-letter" aria-label="Letter C">C</button>
-            <button class="btn-letter" aria-label="Letter D">D</button>
-            <button class="btn-letter" aria-label="Letter E">E</button>
-            <button class="btn-letter" aria-label="Letter F">F</button>
-        </div>
-        <div class="row">
-            <button class="btn-letter" aria-label="Letter G">G</button>
-            <button class="btn-letter" aria-label="Letter H">H</button>
-            <button class="btn-letter" aria-label="Letter I">I</button>
-            <button class="btn-letter" aria-label="Letter J">J</button>
-            <button class="btn-letter" aria-label="Letter K">K</button>
-            <button class="btn-letter" aria-label="Letter L">L</button>
-        </div>
-        <div class="row">
-            <button class="btn-letter" aria-label="Letter M">M</button>
-            <button class="btn-letter" aria-label="Letter N">N</button>
-            <button class="btn-letter" aria-label="Letter O">O</button>
-            <button class="btn-letter" aria-label="Letter P">P</button>
-            <button class="btn-letter" aria-label="Letter Q">Q</button>
-            <button class="btn-letter" aria-label="Letter R">R</button>
-            <button class="btn-letter" aria-label="Letter S">S</button>
-        </div>
-        <div class="row">
-            <button class="btn-letter" aria-label="Letter T">T</button>
-            <button class="btn-letter" aria-label="Letter U">U</button>
-            <button class="btn-letter" aria-label="Letter V">V</button>
-            <button class="btn-letter" aria-label="Letter W">W</button>
-            <button class="btn-letter" aria-label="Letter X">X</button>
-            <button class="btn-letter" aria-label="Letter Y">Y</button>
-            <button class="btn-letter" aria-label="Letter Z">Z</button>
-        </div>
+    <input type="text" id="guess" placeholder="Enter your guess" aria-label="Guess input">
+    <button id="guess-btn">Guess</button>
+    <button id="play-again" style="display: none;">Play Again</button>
 
-        <input type="text" id="guess" placeholder="Enter your guess" aria-label="Guess input">
-        <button id="guess-btn">Guess</button>
-        <button id="play-again" style="display: none;">Play Again</button>
+    <button id="hint-btn">Get Hint</button>
+    <p id="hint-description"></p>
 
-        <button id="hint-btn">Get Hint</button>
-        <p id="hint-description"></p>
-        <p id="current-turn">It's Player 1's turn</p>
-
-        <button id="restart-game" style="display: none;">Restart Game</button>
-    </section>
+    <button id="restart-game" style="display: none;">Restart Game</button>
 </body>
 </html>

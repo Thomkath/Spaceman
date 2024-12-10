@@ -14,44 +14,34 @@ body {
 
 /* Styling for the main title */
 h1 {
-    color: white; /* Set the title color to white */
+    color: white;
     text-align: center;
     font-size: 4rem;
     font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add a shadow for better contrast */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     margin-top: 20px;
 }
 
 /* Main game container */
 #game-container {
     display: flex;
-    justify-content: flex-start; /* Align items to the left */
+    justify-content: flex-start;
     align-items: flex-start;
     padding: 20px;
-    height: 100vh; /* Full height of viewport */
+    height: 100vh;
 }
 
-/* Alphabet and player turn section on the left */
+/* Alphabet and message section */
 #alphabet-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 300px; /* Set width for better alignment */
+    width: 300px;
     padding: 20px;
-    background-color: rgba(44, 62, 80, 0.8); /* Semi-transparent dark background */
+    background-color: rgba(44, 62, 80, 0.8);
     border-radius: 10px;
-    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-}
-
-/* Player turn section styling */
-#current-turn {
-    color: #f1c40f; /* Golden yellow for elegance */
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-align: left;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
 }
 
 /* Styling for individual letter buttons */
@@ -59,8 +49,8 @@ h1 {
     font-size: 1.5rem;
     margin: 5px;
     padding: 15px 20px;
-    background-color: #34495e; /* Darker background for a professional look */
-    color: #ecf0f1; /* Light gray text color */
+    background-color: #34495e;
+    color: #ecf0f1;
     border: 2px solid #ecf0f1;
     border-radius: 5px;
     cursor: pointer;
@@ -69,20 +59,20 @@ h1 {
 }
 
 .btn-letter:hover {
-    background-color: #1abc9c; /* Teal hover effect */
-    color: #2c3e50; /* Darker text for better contrast */
+    background-color: #1abc9c;
+    color: #2c3e50;
 }
 
-/* Input section (right side) */
+/* Input section */
 #input-section {
-    margin-left: 40px; /* Space between left and right sections */
+    margin-left: 40px;
 }
 
 /* General button styling */
 button {
     padding: 10px 20px;
     font-size: 1.2rem;
-    background-color: #34495e; /* Match the letter buttons */
+    background-color: #34495e;
     border: 1px solid white;
     border-radius: 10px;
     color: white;
@@ -105,7 +95,7 @@ button:hover {
 
 /* Restart button */
 #restart-game {
-    background-color: #27ae60; /* Green for restart */
+    background-color: #27ae60;
     border-radius: 5px;
     padding: 10px 20px;
 }

@@ -10,13 +10,7 @@ const wordBank = [
 ];
 
 /*----- state variables -----*/
-let winner;
-let currentTurn;
-let incorrectGuesses;
-let correctGuesses;
-let currentWord;
-let displayedWord;
-let hintUsed = false;
+let winner, incorrectGuesses, correctGuesses, currentWord, displayedWord, hintUsed;
 
 /*----- cached elements -----*/
 const messageEl = document.querySelector('#message');
@@ -27,9 +21,6 @@ const guessEl = document.querySelector('#guess-btn');
 const guessInputEl = document.querySelector('#guess');
 const hintEl = document.querySelector('#hint-btn');
 const hintDescriptionEl = document.querySelector('#hint-description');
-const currentTurnEl = document.querySelector('#current-turn');
-const happyImageEl = document.querySelector('#happy-image');
-const sadImageEl = document.querySelector('#sad-image');
 
 /*----- event listeners -----*/
 playAgainEl.addEventListener('click', initializeGame);
@@ -44,39 +35,43 @@ initializeGame();
 function initializeGame() {
   const randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
   currentWord = randomWord.word.toUpperCase();
-  displayedWord = '_ '.repeat(currentWord.length).trim();
+  displayedWord = '_'.repeat(currentWord.length);
   incorrectGuesses = [];
   correctGuesses = [];
   winner = false;
-  currentTurn = 'Player 1';
   hintUsed = false;
   hintDescriptionEl.textContent = '';
   restartEl.style.display = 'none';
   hintEl.style.display = 'block';
-  enableAllButtons();
-  hideImages(); 
   render();
 }
 
 function render() {
-  messageEl.textContent = `Current Word: ${displayedWord}`;
+  messageEl.textContent = `Current Word: ${formatDisplayedWord(displayedWord)}`;
+  const wrongGuessesEl = document.querySelector('#wrong-guesses');
+  if (wrongGuessesEl) {
+    wrongGuessesEl.textContent = `Wrong guesses: ${incorrectGuesses.join(', ')}`;
+  }
+}
 
-  if (winner) {
-    messageEl.textContent = `Congrats! ${currentTurn} wins!`;
+function formatDisplayedWord(word) {
+  return word.split('').join(' ');
+}
+
+function checkGameOver() {
+  if (displayedWord === currentWord) {
+    winner = true;
+    messageEl.textContent = `Congrats! You guessed the word "${currentWord}"!`;
     restartEl.style.display = 'block';
     hintEl.style.display = 'none';
-  } else {
-    currentTurnEl.textContent = `It's ${currentTurn}'s turn`;
-    const wrongGuessesEl = document.querySelector('#wrong-guesses');
-    if (wrongGuessesEl) {
-      wrongGuessesEl.textContent = `Wrong guesses: ${incorrectGuesses.join(', ')}`;
-    }
+  } else if (incorrectGuesses.length >= 6) {
+    messageEl.textContent = `Game over! The word was "${currentWord}".`;
+    restartEl.style.display = 'block';
+    hintEl.style.display = 'none';
   }
 }
 
 function handleLetterGuess(event) {
-  if (winner || checkGameOver()) return; 
-
   const letter = event.target.textContent.toUpperCase();
 
   if (correctGuesses.includes(letter) || incorrectGuesses.includes(letter)) {
@@ -87,50 +82,31 @@ function handleLetterGuess(event) {
   if (currentWord.includes(letter)) {
     correctGuesses.push(letter);
     updateDisplayedWord();
-    showImage('happy');
   } else {
     incorrectGuesses.push(letter);
-    showImage('sad');
   }
-
-  if (displayedWord === currentWord) {
-    winner = true;
-    messageEl.textContent = `${currentTurn} wins!`;
-    restartEl.style.display = 'block';
-    disableAllButtons();
-    return;
-  }
-
-  switchPlayer();
+  checkGameOver();
 }
 
 function handleWordGuess() {
-  if (winner || checkGameOver()) return; 
-
-  const guessedWord = guessInputEl.value.toUpperCase().trim();
-  if (!guessedWord) {
-    messageEl.textContent = 'Please enter a word!';
-    return;
-  }
+  const guessedWord = guessInputEl.value.toUpperCase();
 
   if (guessedWord === currentWord) {
     winner = true;
-    messageEl.textContent = `Correct! ${currentTurn} guessed the word!`;
-    showImage('happy');
-    restartEl.style.display = 'block';
-    disableAllButtons();
+    messageEl.textContent = `Correct! The word was "${currentWord}"!`;
   } else {
-    messageEl.textContent = `Incorrect word guess! The word was ${currentWord}.`;
-    showImage('sad');
-    restartEl.style.display = 'block';
-    disableAllButtons();
+    incorrectGuesses.push('WORD-GUESS');
+    messageEl.textContent = `Incorrect guess! The word was "${currentWord}".`;
   }
+
+  guessInputEl.value = '';
+  checkGameOver();
 }
 
 function updateDisplayedWord() {
   displayedWord = currentWord.split('')
     .map(letter => (correctGuesses.includes(letter) ? letter : '_'))
-    .join(' ');
+    .join('');
   render();
 }
 
@@ -141,48 +117,10 @@ function provideHint() {
   }
 
   const currentWordObject = wordBank.find(wordObj => wordObj.word.toUpperCase() === currentWord);
+
   if (currentWordObject) {
     hintDescriptionEl.textContent = `Hint: ${currentWordObject.description}`;
   }
 
   hintUsed = true;
-  render();
-}
-
-function switchPlayer() {
-  currentTurn = currentTurn === 'Player 1' ? 'Player 2' : 'Player 1';
-  render();
-}
-
-function checkGameOver() {
-  if (incorrectGuesses.length >= 6) {
-    messageEl.textContent = `Game over! The word was ${currentWord}.`;
-    restartEl.style.display = 'block';
-    disableAllButtons();
-    return true;
-  }
-  return false;
-}
-
-function disableAllButtons() {
-  buttonEls.forEach(button => button.disabled = true);
-}
-
-function enableAllButtons() {
-  buttonEls.forEach(button => button.disabled = false);
-}
-
-function showImage(type) {
-  if (type === 'happy') {
-    happyImageEl.style.display = 'block';
-    sadImageEl.style.display = 'none';
-  } else if (type === 'sad') {
-    sadImageEl.style.display = 'block';
-    happyImageEl.style.display = 'none';
-  }
-}
-
-function hideImages() {
-  happyImageEl.style.display = 'none';
-  sadImageEl.style.display = 'none';
 }
